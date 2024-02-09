@@ -1,0 +1,12 @@
+{
+    "wood" : {
+        "stiffness" : 0.7,
+        "max_extension": 1.2,
+        "max_compression": 0.8
+    },
+    "road": {
+        "stiffness": 0.01,
+        "max_extension": 1.05,
+        "max_compression": 0.5
+    }
+}

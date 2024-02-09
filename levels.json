@@ -1,0 +1,16 @@
+{
+    "level_1" : {
+        "name" : "Hills",
+        "tablier" : {
+            "start_x" : 100,
+            "start_y": 300,
+            "end_x": 900,
+            "end_y": 300,
+            "intial_fixed_points": [],
+            "mass_points_weigth" : 1,
+            "subdivision" : 5
+        },
+        "gravity_x" : 0,
+        "gravity_y": 1
+    }
+}
