@@ -14,7 +14,7 @@ function createParticlesAndSprings(subDivision, startX, endX, startY, endY, stif
     }
     // Create springs between consecutive particles
     for (let i = 0; i < particles.length - 1; i++) {
-        springs.push(new Spring(particles[i], particles[i + 1], stiffness, max_compression, max_extension));
+        springs.push(new Spring(particles[i], particles[i + 1], stiffness, max_compression, max_extension, "road"));
     }
     return { particles, springs };
 }
