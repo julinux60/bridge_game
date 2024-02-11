@@ -31,6 +31,8 @@ let level_data;
 let terrain_image;
 let background_image;
 let big_cloud_image;
+let water_top_image;
+let water_bottom_image;
 
 /*
 preload
@@ -41,8 +43,11 @@ function preload(){
   level_data = loadJSON("./levels.json")
 
   terrain_image = loadImage("./images/Terrain (32x32).png");
-  background_image = loadImage("./images/BG Image.png");
+  background_image = loadImage("./images/bg3.jpg");
   big_cloud_image = loadImage("./images/Big Clouds.png");
+
+  water_top_image = loadImage("./images/water_top.png");
+  water_bottom_image = loadImage("./images/water_bottom.png");
 }
 
 /*
@@ -96,104 +101,5 @@ function draw() {
       cursorPoint = i;
       circle(particles[i].x, particles[i].y, 20);
     }
-  }
-}
-
-function keyPressed() {
-  console.log("OK")
-
-  if(keyCode == 71){ // g
-    if (physics.behaviors.length != 0) {
-      physics.removeBehavior(gravity);
-    }
-    else {
-      physics.addBehavior(gravity);
-    }
-  }
-
-  else if (keyCode == 32) {///espace
-  
-  }
-
-  else if (keyCode == 82) {//r
-    restart();
-  }
-
-  else if (keyCode == 90) {//z
-    undo_build();
-  }
-  else if (keyCode == 65) {//z
-    selectedPoints = []
-  }
-
-}
-
-function mouseClicked() {
-
-  if (cursorPoint == -1) {
-    particles.push(new Particle(mouseX, mouseY, 0.2));
-    selectedPoints.push(particles.length - 1);
-    lastAction.push(1);
-  }
-  else {
-    if (!selectedPoints.includes(cursorPoint)) {
-      selectedPoints.push(cursorPoint);
-    } else {
-      const index = selectedPoints.indexOf(cursorPoint);
-      if (index > -1) {
-        selectedPoints.splice(index, 1);
-      }
-    }
-  }
-
-  if (selectedPoints.length == 2) {
-    springs.push(new Spring(particles[selectedPoints[0]], particles[selectedPoints[1]], 0.95, materials.wood.max_compression, materials.wood.max_extension, "wood"));
-    selectedPoints.splice(0, 1);
-    lastAction.push(2);
-  }
-}
-
-function drawBackground(){
-  background(221, 198, 161);
-
-  image(background_image, 0, 0, width, height, 0, 0, background_image.width, background_image.height, COVER)
-
-  tic++;
-  image(big_cloud_image, tic, 100, big_cloud_image.width * 3, big_cloud_image.height * 3, 0, 0, big_cloud_image.width, big_cloud_image.height)
-
-  //image(terrain_image, 0, 0, 50, 50, 0, 0, 32, 32);
-  image(terrain_image, 0, 320, 50, 50, 32, 0, 32, 32);
-  image(terrain_image, 0, 370, 50, 50, 32, 32, 32, 32);
-  image(terrain_image, 0, 420, 50, 50, 32, 32, 32, 32);
-  image(terrain_image, 0, 470, 50, 50, 32, 32, 32, 32);
-  image(terrain_image, 0, 520, 50, 50, 32, 32, 32, 32);
-  image(terrain_image, 0, 570, 50, 50, 32, 32, 32, 32);
-
-  image(terrain_image, 50, 320, 50, 50, 64, 0, 32, 32);
-  image(terrain_image, 50, 320, 50, 50, 64, 0, 32, 32);
-  image(terrain_image, 50, 370, 50, 50, 64, 32, 32, 32);
-  image(terrain_image, 50, 420, 50, 50, 64, 32, 32, 32);
-  image(terrain_image, 50, 470, 50, 50, 64, 32, 32, 32);
-  image(terrain_image, 50, 520, 50, 50, 64, 32, 32, 32);
-  image(terrain_image, 50, 570, 50, 50, 64, 32, 32, 32);
-
-  image(terrain_image, 800, 400, 50, 50, 0, 0, 32, 32);
-  for (let i = 0; i < 4; i++) {
-    image(terrain_image, 800, 450 + i * 50, 50, 50, 0, 32, 32, 32);
-  }
-
-  image(terrain_image, 850, 400, 50, 50, 32, 0, 32, 32);
-  for (let i = 0; i < 4; i++) {
-    image(terrain_image, 850, 450 + i * 50, 50, 50, 32, 32, 32, 32);
-  }
-
-  image(terrain_image, 900, 400, 50, 50, 32, 0, 32, 32);
-  for (let i = 0; i < 4; i++) {
-    image(terrain_image, 900, 450 + i * 50, 50, 50, 32, 32, 32, 32);
-  }
-
-  image(terrain_image, 950, 400, 50, 50, 32, 0, 32, 32);
-  for (let i = 0; i < 4; i++) {
-    image(terrain_image, 950, 450 + i * 50, 50, 50, 32, 32, 32, 32);
   }
 }

@@ -4,6 +4,7 @@ function restart() {
 
     cursorPoint = -1;
     selectedPoints = [];
+    lastAction = [];
 
     if (physics.behaviors.length != 0) {
         physics.removeBehavior(gravity);
@@ -33,5 +34,59 @@ function undo_build() {
         physics.removeSpring(springs[springs.length - 1]);
         springs.pop();
         lastAction.pop();
+    }
+}
+
+function keyPressed() {
+    console.log("OK")
+
+    if (keyCode == 71) { // g
+        if (physics.behaviors.length != 0) {
+            physics.removeBehavior(gravity);
+        }
+        else {
+            physics.addBehavior(gravity);
+        }
+    }
+
+    else if (keyCode == 32) {///espace
+
+    }
+
+    else if (keyCode == 82) {//r
+        restart();
+    }
+
+    else if (keyCode == 90) {//z
+        undo_build();
+    }
+    else if (keyCode == 65) {//z
+        selectedPoints = []
+    }
+
+}
+
+function mouseClicked() {
+
+    if (cursorPoint == -1) {
+        particles.push(new Particle(mouseX, mouseY, 0.2));
+        selectedPoints.push(particles.length - 1);
+        lastAction.push(1);
+    }
+    else {
+        if (!selectedPoints.includes(cursorPoint)) {
+            selectedPoints.push(cursorPoint);
+        } else {
+            const index = selectedPoints.indexOf(cursorPoint);
+            if (index > -1) {
+                selectedPoints.splice(index, 1);
+            }
+        }
+    }
+
+    if (selectedPoints.length == 2) {
+        springs.push(new Spring(particles[selectedPoints[0]], particles[selectedPoints[1]], 0.95, materials.wood.max_compression, materials.wood.max_extension, "wood"));
+        selectedPoints.splice(0, 1);
+        lastAction.push(2);
     }
 }
