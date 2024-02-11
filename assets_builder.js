@@ -18,16 +18,16 @@ const BLOCK_REFERENCE = {
 function drawBackground() {
 
     background(255);
-    tint(200, 127);
-    image(background_image, 0, 0, width, height, 0, 0, background_image.width, background_image.height, COVER)
+    tint(level_data.background_tint.gray, level_data.background_tint.alpha);
+    image(background_image, 0, 0, width, height, 0, 0, background_image.width, background_image.height, COVER);
+
+    //tint(255, 255);
+    //drawWater(0, 450, 12, 3);
+    tint(level_data.block_tints.r, level_data.block_tints.g, level_data.block_tints.b, 255);
+    for(let i = 0; i < level_data.blocks.length; i++){
+        drawBlock(level_data.blocks[i].x, level_data.blocks[i].y, level_data.blocks[i].size_x, level_data.blocks[i].size_y)
+    }
     tint(255, 255);
-
-
-    drawWater(0, 450, 12, 3);
-
-    drawBlock(-50, 250, 2, 4);
-    drawBlock(750, 300, 4, 5);
-    
 }
 
 function drawTextureFromIndex(x, y, indexX, indexY) {

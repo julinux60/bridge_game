@@ -1,11 +1,11 @@
 {
     "level_1" : {
-        "name" : "Hills",
+        "name" : "Osaka Park",
         "tablier" : {
-            "start_x" : 100,
-            "start_y": 320,
-            "end_x": 800,
-            "end_y": 400,
+            "start_x" : 110,
+            "start_y": 250,
+            "end_x": 750,
+            "end_y": 300,
             "initial_fixed_points": [],
             "mass_points_weigth" : 1,
             "subdivision" : 5
@@ -13,8 +13,118 @@
         "gravity_x" : 0,
         "gravity_y": 1,
         "other_fix_points" : [
-            {"x" : 100, "y" : 500},
-            {"x" : 800, "y" : 500}
-        ]
+            {"x" : 110, "y" : 400},
+            {"x" : 750, "y" : 370}
+        ],
+        "background_src" : "level_1.gif",
+        "blocks" : [
+            {"x" : -50, "y": 250, "size_x" : 2, "size_y": 4},
+            {
+                "x": 750,
+                "y": 300,
+                "size_x": 4,
+                "size_y": 5
+            }
+        ],
+        "block_tints": {"r": 255, "g": 217, "b": 253},
+        "background_tint":{"gray":240, "alpha": 180}
+    },
+    "level_2": {
+        "name": "India",
+        "tablier": {
+            "start_x": 110,
+            "start_y": 300,
+            "end_x": 750,
+            "end_y": 200,
+            "initial_fixed_points": [],
+            "mass_points_weigth": 1,
+            "subdivision": 5
+        },
+        "gravity_x": 0,
+        "gravity_y": 1,
+        "other_fix_points": [
+            {
+                "x": 110,
+                "y": 500
+            },
+            {
+                "x": 750,
+                "y": 470
+            }
+        ],
+        "background_src": "level_2.gif",
+        "blocks": [
+            {
+                "x": -50,
+                "y": 300,
+                "size_x": 2,
+                "size_y": 4
+            },
+            {
+                "x": 750,
+                "y": 200,
+                "size_x": 4,
+                "size_y": 5
+            }
+        ],
+        "block_tints": {
+            "r": 255,
+            "g": 241,
+            "b": 217
+        },
+        "background_tint": {
+            "gray": 240,
+            "alpha": 225
+        }
+    },
+    "level_3": {
+        "name": "Moon park",
+        "tablier": {
+            "start_x": 150,
+            "start_y": 350,
+            "end_x": 750,
+            "end_y": 400,
+            "initial_fixed_points": [],
+            "mass_points_weigth": 1,
+            "subdivision": 5
+        },
+        "gravity_x": 0,
+        "gravity_y": 1,
+        "other_fix_points": [
+            {
+                "x": 450,
+                "y": 260
+            }
+        ],
+        "background_src": "level_1.gif",
+        "blocks": [
+            {
+                "x": -10,
+                "y": 350,
+                "size_x": 2,
+                "size_y": 3
+            },
+            {
+                "x": 750,
+                "y": 400,
+                "size_x": 4,
+                "size_y": 5
+            },
+            {
+                "x": 400,
+                "y": 100,
+                "size_x": 2,
+                "size_y": 2
+            }
+        ],
+        "block_tints": {
+            "r": 255,
+            "g": 180,
+            "b": 95
+        },
+        "background_tint": {
+            "gray": 240,
+            "alpha": 180
+        }
     }
 }

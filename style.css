@@ -1,4 +1,32 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-family: 'VT323', monospace;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f2120;
+}
+
+canvas{
+  border-radius: 15px;
+}
+
+#floating_command{
+  position: absolute;
+  background-color: #373a39;
+  padding: 15px;
+  border-radius: 15px;
+  color: #b0b6b4;
+  right: 10px;
+  bottom: 10px;
+}
+
+p{
+  padding: 0;
+  margin: 0;
 }

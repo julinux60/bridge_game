@@ -30,9 +30,11 @@ let level_data;
 
 let terrain_image;
 let background_image;
-let big_cloud_image;
 let water_top_image;
 let water_bottom_image;
+
+const urlParams = new URLSearchParams(window.location.search);
+const level = urlParams.get('level');
 
 /*
 preload
@@ -43,8 +45,9 @@ function preload(){
   level_data = loadJSON("./levels.json")
 
   terrain_image = loadImage("./images/Terrain (32x32).png");
-  background_image = loadImage("./images/bg3.jpg");
-  big_cloud_image = loadImage("./images/Big Clouds.png");
+  //background_image = loadImage("./images/bg3.jpg");
+  background_image = loadImage(`./images/level${level}.gif`);
+  
 
   water_top_image = loadImage("./images/water_top.png");
   water_bottom_image = loadImage("./images/water_bottom.png");
@@ -55,8 +58,9 @@ setup
 */
 
 function setup() {
-  createCanvas(WIDTH, HEIGHT);
-  level_data = level_data.level_1;
+  canvas = createCanvas(WIDTH, HEIGHT);
+  canvas.parent('canvasContainer'); 
+  level_data = level_data[`level_${level}`]
 
   physics = new VerletPhysics2D();
   let bounds = new Rect(0, 0, width, height);
